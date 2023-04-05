@@ -13,19 +13,19 @@ import lombok.Setter;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class SingUpRequest {
 
-    @NotEmpty @NotNull
+    @NotNull
     private String fullName;
 
-    @Email @NotNull @NotEmpty
+    @Email
     private String email;
 
-    @NotEmpty @Size(min = 8, message = "The password should have 8 characters min.")
+    @Size(min = 8, message = "The password should have 8 characters min.")
     private String password;
 
-    @NotEmpty @NotNull
+    @NotNull
     private String rol;
 
-    @NotEmpty @NotNull
-    private String sesionId;
+    @NotEmpty
+    private String sessionId;
 
 }

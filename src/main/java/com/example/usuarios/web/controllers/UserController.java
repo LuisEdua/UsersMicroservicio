@@ -21,6 +21,7 @@ public class UserController {
 
     @RabbitListener(queues = "queue.users_sign_up", errorHandler = "rabbitHandlerExceptions")
     public void signUp(String payload) throws JsonProcessingException{
+        System.out.println(payload);
         SingUpRequest request = MapperUtil.deserialize(payload, SingUpRequest.class);
         BaseResponse response = service.signUp(request);
         rabbitMQ.sendToUsersResponseQueue(response);

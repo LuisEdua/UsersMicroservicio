@@ -27,7 +27,7 @@ public class UserServiceImpl implements IUserService {
     public BaseResponse signUp(SingUpRequest request) {
         User user = repository.save(from(request));
         return BaseResponse.builder()
-                .sessionId(request.getSesionId())
+                .sessionId(request.getSessionId())
                 .data(from(user))
                 .message("The user was saved")
                 .success(Boolean.TRUE)
