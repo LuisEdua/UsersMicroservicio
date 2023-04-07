@@ -30,7 +30,7 @@ public class UserController {
         SingUpRequest request = MapperUtil.deserialize(payload, SingUpRequest.class);
         try {
             BaseResponse response = service.signUp(request);
-            rabbitMQ.sendToUsersResponseQueue(response);
+            rabbitMQ.sendToUsersSignUpResponseQueue(response);
         } catch (Exception e){
             exceptions.signUpError(e, request.getSessionId());
         }

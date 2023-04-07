@@ -14,15 +14,15 @@ public class RabbitMQ implements IRabbitMQ{
     private RabbitTemplate template;
 
     @Override
-    public void sendToUsersResponseQueue(BaseResponse response) throws JsonProcessingException {
+    public void sendToUsersSignUpResponseQueue(BaseResponse response) throws JsonProcessingException {
         String serialize = MapperUtil.serialize(response);
-        template.convertAndSend("queue.users_responses",serialize);
+        template.convertAndSend("queue.users_sign_up_responses",serialize);
     }
 
     @Override
     public void sendToExceptionQueue(BaseResponse response) throws JsonProcessingException {
         String serialize = MapperUtil.serialize(response);
-        template.convertAndSend("queue.errors", serialize);
+        template.convertAndSend("queue.users_errors", serialize);
     }
 
     @Override
@@ -33,7 +33,6 @@ public class RabbitMQ implements IRabbitMQ{
 
     @Override
     public void sendToExceptionLogInQueue(BaseResponse response) throws JsonProcessingException {
-        System.out.println("Usuario no valido");
         String serialize = MapperUtil.serialize(response);
         template.convertAndSend("queue.users_log_in_errors", serialize);
     }
@@ -41,7 +40,7 @@ public class RabbitMQ implements IRabbitMQ{
     @Override
     public void sendToExceptionSignUpQueue(BaseResponse response) throws JsonProcessingException {
         String serialize = MapperUtil.serialize(response);
-        template.convertAndSend("queue.users_errors", serialize);
+        template.convertAndSend("queue.users_sign_up_errors", serialize);
     }
 
 }
