@@ -10,16 +10,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 public class LogInRequest {
-    @Email
-    @NotNull
-    @NotEmpty
+
     private String email;
 
-    @NotEmpty @Size(min = 8, message = "The password should have 8 characters min.")
     private String password;
 
-    @NotEmpty @NotNull
-    private String sesionId;
+    private String sessionId;
 }

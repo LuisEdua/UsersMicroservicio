@@ -9,4 +9,8 @@ public interface IRabbitMQ {
     void sendToExceptionQueue(BaseResponse response) throws JsonProcessingException;
 
     void sendToUsersLogInResponseQueue(BaseResponse response) throws JsonProcessingException;
+
+    void sendToExceptionLogInQueue(BaseResponse response) throws JsonProcessingException;
+
+    void sendToExceptionSignUpQueue(BaseResponse response) throws JsonProcessingException;
 }

@@ -31,4 +31,17 @@ public class RabbitMQ implements IRabbitMQ{
         template.convertAndSend("queue.users_log_in_response", serialize);
     }
 
+    @Override
+    public void sendToExceptionLogInQueue(BaseResponse response) throws JsonProcessingException {
+        System.out.println("Usuario no valido");
+        String serialize = MapperUtil.serialize(response);
+        template.convertAndSend("queue.users_log_in_errors", serialize);
+    }
+
+    @Override
+    public void sendToExceptionSignUpQueue(BaseResponse response) throws JsonProcessingException {
+        String serialize = MapperUtil.serialize(response);
+        template.convertAndSend("queue.users_errors", serialize);
+    }
+
 }

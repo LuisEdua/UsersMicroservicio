@@ -41,7 +41,7 @@ public class UserServiceImpl implements IUserService {
         User user = repository.findByEmail(request.getEmail()).orElseThrow(InvalidCredentialsException::new);
         if(encoder.matches(request.getPassword(), user.getPassword())){
          return BaseResponse.builder()
-                 .sessionId(request.getSesionId())
+                 .sessionId(request.getSessionId())
                  .data(from(user))
                  .message("Verify success")
                  .success(Boolean.TRUE)
@@ -66,7 +66,7 @@ public class UserServiceImpl implements IUserService {
         user.setFullName(request.getFullName());
         user.setEmail(request.getEmail());
         user.setPassword(encoder.encode(request.getPassword()));
-        user.setRol(request.getEmail());
+        user.setRol(request.getRol());
         return user;
     }
 }
