@@ -25,7 +25,7 @@ public class UserController {
     @Autowired
     private UserExceptions exceptions;
 
-    @RabbitListener(queues = "queue.users_sign_up", errorHandler = "rabbitHandlerExceptions")
+    @RabbitListener(queues = "queue.users_sign_up")
     public void signUp(String payload) throws JsonProcessingException{
         SingUpRequest request = MapperUtil.deserialize(payload, SingUpRequest.class);
         try {
@@ -36,7 +36,7 @@ public class UserController {
         }
     }
 
-    @RabbitListener(queues = "queue.users_log_in", errorHandler = "rabbitHandlerExceptions")
+    @RabbitListener(queues = "queue.users_log_in")
     public void logIn(String payload) throws JsonProcessingException{
         LogInRequest request = MapperUtil.deserialize(payload, LogInRequest.class);
         try {
