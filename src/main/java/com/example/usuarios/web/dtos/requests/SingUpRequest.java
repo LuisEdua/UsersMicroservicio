@@ -17,9 +17,4 @@ public class SingUpRequest {
     private String email;
 
     private String password;
-
-    private String rol;
-
-    private String sessionId;
-
 }

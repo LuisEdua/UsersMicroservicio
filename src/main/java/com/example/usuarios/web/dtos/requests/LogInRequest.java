@@ -15,6 +15,4 @@ public class LogInRequest {
     private String email;
 
     private String password;
-
-    private String sessionId;
 }

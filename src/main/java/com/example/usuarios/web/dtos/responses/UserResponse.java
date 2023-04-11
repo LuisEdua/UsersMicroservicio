@@ -20,7 +20,4 @@ public class UserResponse {
     @Email
     @NotNull @NotEmpty
     private String email;
-
-    @NotEmpty @NotNull
-    private String rol;
 }

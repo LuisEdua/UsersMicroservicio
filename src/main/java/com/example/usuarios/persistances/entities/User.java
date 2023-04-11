@@ -9,7 +9,6 @@ import lombok.Setter;
 @Table(name = "users")
 @Getter @Setter
 public class User{
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,7 +19,4 @@ public class User{
     private String email;
 
     private String password;
-
-    private String rol;
-
 }
